@@ -1,4 +1,7 @@
 .header{
     border: 2px solid black;
     text-align: center;
+    background-color: cornflowerblue;
+    margin-bottom: 20px;
+    border-bottom-width: 6px;
 }
