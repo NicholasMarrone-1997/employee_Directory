@@ -11,7 +11,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(`https://randomuser.me/api/?results=10&nat=Eu`)
+    axios.get(`https://randomuser.me/api/?results=20&nat=us`)
       .then(res => {
         this.setState({ employeeList: res.data.results });
       });
