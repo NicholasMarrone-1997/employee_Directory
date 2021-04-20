@@ -1,12 +1,14 @@
 import { Component } from 'react';
 import "./Table.css";
 import Row from "../Row/Row";
+import axios from 'axios';
 
 class Table extends Component {
   constructor(props){
     super(props);
     this.state = {
-        value: ''
+        value: '',
+        employeeList: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,8 +20,16 @@ class Table extends Component {
         console.log(this.state.value);
     }
 
+    componentDidMount() {
+        axios.get(`https://randomuser.me/api/?results=20&nat=us`)
+          .then(res => {
+            this.setState({ employeeList: res.data.results });
+            console.log(res.data.results);
+          });
+      }
+
     render() { 
-        return ( 
+        return this.state.employeeList.length ? (  
             <div className="table-container">
                 <div className="search">
                     <form className="form">
@@ -41,26 +51,32 @@ class Table extends Component {
                     {/*table*/} 
                     <table>
                         <thead>
+                        <tr>
                             <th>Picture</th>
                             <th>Name</th>
                             <th>Gender</th>
                             <th>Email</th>
                             <th>Phone</th>
+                        </tr>
                         </thead>
+                        <tbody>
+
                         {/*looping here*/}
-                        {/* {this.state.data.map((data, index) => {
-                            return <Row 
+                        {this.state.employeeList.map((data, index) => {
+                            return <Row key={index}
                              gender={data.gender}
-                             name={data.name}
+                             name={`${data.name.title} ${data.name.first} ${data.name.last}`}
                              email={data.email}
-                             picture={data.picture}
+                             picture={data.picture.large}
                              phone={data.phone}
                             />
-                        })} */}
+                        })
+                    }
+                    </tbody>
                     </table>       
                 </div>
             </div>
-         );
+         ) : null;
     }
 }
  
