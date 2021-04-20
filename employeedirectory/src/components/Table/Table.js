@@ -48,14 +48,14 @@ class Table extends Component {
                             <th>Col5</th>
                         </thead>
                         {/*looping here*/}
-                        {this.state.data.map((data, index) => {
+                        {/* {this.state.data.map((data, index) => {
                             return <Row 
                              gender={data.gender}
                              name={data.name}
                              email={data.email}
                              picture={data.picture}
                             />
-                        })}
+                        })} */}
                     </table>       
                 </div>
             </div>
