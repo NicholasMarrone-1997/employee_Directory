@@ -41,11 +41,11 @@ class Table extends Component {
                     {/*table*/} 
                     <table>
                         <thead>
-                            <th>Col1</th>
-                            <th>Col2</th>
-                            <th>Col3</th>
-                            <th>Col4</th>
-                            <th>Col5</th>
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Email</th>
+                            <th>Phone</th>
                         </thead>
                         {/*looping here*/}
                         {/* {this.state.data.map((data, index) => {
@@ -54,6 +54,7 @@ class Table extends Component {
                              name={data.name}
                              email={data.email}
                              picture={data.picture}
+                             phone={data.phone}
                             />
                         })} */}
                     </table>       
