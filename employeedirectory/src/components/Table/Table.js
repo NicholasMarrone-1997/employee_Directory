@@ -1,10 +1,13 @@
 import { Component } from 'react';
 import "./Table.css";
+import Row from "../Row/Row";
 
 class Table extends Component {
   constructor(props){
     super(props);
-    this.state = {value: ''};
+    this.state = {
+        value: ''
+    };
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -45,6 +48,14 @@ class Table extends Component {
                             <th>Col5</th>
                         </thead>
                         {/*looping here*/}
+                        {this.state.data.map((data, index) => {
+                            return <Row 
+                             gender={data.gender}
+                             name={data.name}
+                             email={data.email}
+                             picture={data.picture}
+                            />
+                        })}
                     </table>       
                 </div>
             </div>
